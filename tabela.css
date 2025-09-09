@@ -1,0 +1,142 @@
+/* Reset e estilo base */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to right, #648DDE, #7CB7F2, #84CFF5, #4aa7b9, #7DFFFF);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+main {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #053a46ad;
+  width: 90%;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  gap: 10px; /* Espaço entre label, input e botão */
+}
+
+label {
+  width: 200px;
+  text-align: right;
+  font-weight: bold;
+   white-space: nowrap; /* mantém tudo na mesma linha */
+  font-size: 15px; 
+}
+
+input {
+  width: 220px;        /* largura fixa mais pequena */
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+ 
+
+}
+
+.form-row button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.form-row button:hover {
+  background: #a71d2a;
+}
+
+
+main > button {
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin: 10px auto;
+  display: block;
+  transition: 0.3s;
+  color: white;
+  background: #007BFF;
+}
+.btn_adicionar{
+  background: #007BFF;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;  
+}
+
+.btn_adicionar:hover{
+   background: #0056b3;
+  transform: scale(1.05);
+}
+
+main > button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn_limpar {
+  background: #dc3545;
+}
+.btn_limpar:hover {
+  background: #a71d2a;
+  transform: scale(1.05)}
+
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #007BFF;
+  color: #fff;
+  font-weight: bold;
+}
+
+#sal_liquido {
+  font-weight: bold;
+  font-size: 18px;
+  color: darkgreen;
+}
