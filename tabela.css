@@ -140,3 +140,20 @@ th {
   font-size: 18px;
   color: darkgreen;
 }
+
+
+@media
+(max-width: 640px) {
+  input {
+  width: 100px;        /* largura fixa mais pequena */
+
+
+}
+
+}
+ #areaSalario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+justify-content: center;}
