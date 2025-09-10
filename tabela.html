@@ -13,26 +13,23 @@
 
   <!-- Salário Base -->
   <div id="areaSalario">
-   <div class="form-row">
-  <label for="salario">Salário base (Kz):</label>
-  <input type="number" id="salario" placeholder="Ex: 50000">
-</div>
+    <div class="form-row">
+      <label for="inp_salbase">Salário base (Kz):</label>
+      <input type="number" id="inp_salbase" placeholder="Ex: 50000">
+    </div>
 
-<div class="form-row">
-  <label for="transporte">Subsídio de Transporte (Kz):</label>
-  <input type="number" id="transporte" placeholder="Ex: 10000">
-</div>
+    <div class="form-row">
+      <label for="inp_sub_trans">Subsídio de Transporte (Kz):</label>
+      <input type="number" id="inp_sub_trans" placeholder="Ex: 10000">
+    </div>
 
-<div class="form-row">
-  <label for="alimentacao">Subsídio de Alimentação (Kz):</label>
-  <input type="number" id="alimentacao" placeholder="Ex: 15000">
-</div>
-
+    <div class="form-row">
+      <label for="inp_sub_alim">Subsídio de Alimentação (Kz):</label>
+      <input type="number" id="inp_sub_alim" placeholder="Ex: 15000">
+    </div>
   </div>
 
- 
   <div id="areaSubsidi"></div>
-
 
   <button type="button" onclick="adicionarLinha()" class="btn_adicionar">+ Adicionar Subsídio</button>
   <button type="button" onclick="calcular()" class="btn_calcular">Calcular</button>
@@ -65,108 +62,98 @@
     </tbody>
   </table>
 
- 
   <button type="button" onclick="limpar()" class="btn_limpar">Limpar</button>
   <button type="button" onclick="window.location.href='tabelairt.html'" class="btn_irt">
     Ver Tabela do IRT
   </button>
 </main>
 
+<script>
+  function adicionarLinha() {
+    let nome = prompt("Digite o nome do subsídio:");
+    if (nome && nome.trim() !== "") {
+      let div = document.getElementById("areaSubsidi");
+      let novaDiv = document.createElement("div");
+      novaDiv.className = "form-row";
 
+      novaDiv.innerHTML = `
+        <label>${nome} (Kz):</label>
+        <input type="number" name="subsidi_valor[]" placeholder="Ex: 5000">
+        <button type="button" onclick="removerLinha(this)" style="background:#dc3545; padding:6px 12px; font-size:14px;">Remover</button>
+      `;
+      div.appendChild(novaDiv);
+    }
+  }
 
-  
-  <script>
-    function adicionarLinha() {
-      let nome = prompt("Digite o nome do subsídio:");
-      if (nome && nome.trim() !== "") {
-        let div = document.getElementById("areaSubsidi");
-        let novaDiv = document.createElement("div");
-        novaDiv.className = "form-row";
+  function removerLinha(botao) {
+    botao.parentNode.remove();
+  }
 
-        novaDiv.innerHTML = `
-          <label>${nome} (Kz):</label>
-          <input type="number" name="subsidi_valor[]" placeholder="Ex: 5000">
-          <button type="button" onclick="removerLinha(this)" style="background:#dc3545; padding:6px 12px; font-size:14px;">Remover</button>
-        `;
-        div.appendChild(novaDiv);
+  const irtTabela = [
+    { min: 0,        max: 70000,     pf: 0,       ex: 0,        taxa: 0.00 }, 
+    { min: 70001,    max: 100000,    pf: 3000,    ex: 70000,    taxa: 0.10 }, 
+    { min: 100001,   max: 150000,    pf: 6000,    ex: 100000,   taxa: 0.13 }, 
+    { min: 150001,   max: 200000,    pf: 12500,   ex: 150000,   taxa: 0.16 }, 
+    { min: 200001,   max: 300000,    pf: 31250,   ex: 200000,   taxa: 0.18 }, 
+    { min: 300001,   max: 500000,    pf: 49250,   ex: 300000,   taxa: 0.19 }, 
+    { min: 500001,   max: 1000000,   pf: 87250,   ex: 500000,   taxa: 0.20 }, 
+    { min: 1000001,  max: 1500000,   pf: 187250,  ex: 1000000,  taxa: 0.21 }, 
+    { min: 1500001,  max: 2000000,   pf: 292250,  ex: 1500000,  taxa: 0.23 }, 
+    { min: 2000001,  max: 2500000,   pf: 402250,  ex: 2000000,  taxa: 0.235 }, 
+    { min: 2500001,  max: 5000000,   pf: 517250,  ex: 2500000,  taxa: 0.24 }, 
+    { min: 5000001,  max: 10000000,  pf: 1117250, ex: 5000000,  taxa: 0.245 }, 
+    { min: 10000001, max: Infinity,  pf: 2342250, ex: 10000000, taxa: 0.25 }  
+  ];
+
+  function calcularIRT(mc) {
+    for (let esc of irtTabela) {
+      if (mc >= esc.min && mc <= esc.max) {
+        return esc.pf + (mc - esc.ex) * esc.taxa;
       }
     }
+    return 0; 
+  }
 
-    function removerLinha(botao) {
-      botao.parentNode.remove();
+  function calcular() {
+    let salBase = Number(document.getElementById("inp_salbase").value) || 0;
+    let subTrans = Number(document.getElementById("inp_sub_trans").value) || 0;
+    let subAlim = Number(document.getElementById("inp_sub_alim").value) || 0;
+
+    let subTransTrib = subTrans > 30000 ? subTrans - 30000 : 0;
+    let subAlimTrib = subAlim > 30000 ? subAlim - 30000 : 0;
+
+    let valores = document.getElementsByName("subsidi_valor[]");
+    let totalSubsAdicionais = 0;
+    for (let i = 0; i < valores.length; i++) {
+      totalSubsAdicionais += Number(valores[i].value) || 0;
     }
 
+    let bruto = salBase + subTrans + subAlim + totalSubsAdicionais;
 
-    const irtTabela = [
-      { min: 0,        max: 70000,     pf: 0,       ex: 0,        taxa: 0.00 }, 
-      { min: 70001,    max: 100000,    pf: 3000,    ex: 70000,    taxa: 0.10 }, 
-      { min: 100001,   max: 150000,    pf: 6000,    ex: 100000,   taxa: 0.13 }, 
-      { min: 150001,   max: 200000,    pf: 12500,   ex: 150000,   taxa: 0.16 }, 
-      { min: 200001,   max: 300000,    pf: 31250,   ex: 200000,   taxa: 0.18 }, 
-      { min: 300001,   max: 500000,    pf: 49250,   ex: 300000,   taxa: 0.19 }, 
-      { min: 500001,   max: 1000000,   pf: 87250,   ex: 500000,   taxa: 0.20 }, 
-      { min: 1000001,  max: 1500000,   pf: 187250,  ex: 1000000,  taxa: 0.21 }, 
-      { min: 1500001,  max: 2000000,   pf: 292250,  ex: 1500000,  taxa: 0.23 }, 
-      { min: 2000001,  max: 2500000,   pf: 402250,  ex: 2000000,  taxa: 0.235 }, 
-      { min: 2500001,  max: 5000000,   pf: 517250,  ex: 2500000,  taxa: 0.24 }, 
-      { min: 5000001,  max: 10000000,  pf: 1117250, ex: 5000000,  taxa: 0.245 }, 
-      { min: 10000001, max: Infinity,  pf: 2342250, ex: 10000000, taxa: 0.25 }  
-    ];
+    let inss = salBase * 0.03;
+    let mc = (salBase - inss) + subTransTrib + subAlimTrib + totalSubsAdicionais;
+    let irt = calcularIRT(mc);
 
-    function calcularIRT(mc) {
-      for (let esc of irtTabela) {
-        if (mc >= esc.min && mc <= esc.max) {
-          return esc.pf + (mc - esc.ex) * esc.taxa;
-        }
-      }
-      return 0; 
-    }
+    let liquido = bruto - (inss + irt);
 
-    function calcular() {
-      let salBase = Number(document.getElementById("inp_salbase").value) || 0;
-      let subTrans = Number(document.getElementById("inp_sub_trans").value) || 0;
-      let subAlim = Number(document.getElementById("inp_sub_alim").value) || 0;
+    document.getElementById("td_salbruto").innerText = bruto.toLocaleString();
+    document.getElementById("td_inss").innerText = inss.toLocaleString();
+    document.getElementById("td_irt").innerText = irt.toLocaleString();
+    document.getElementById("sal_liquido").innerText = liquido.toLocaleString();
+  }
 
-      let subTransTrib = subTrans > 30000 ? subTrans - 30000 : 0;
-      let subAlimTrib = subAlim > 30000 ? subAlim - 30000 : 0;
+  function limpar() {
+    document.getElementById("inp_salbase").value = "";
+    document.getElementById("inp_sub_trans").value = "";
+    document.getElementById("inp_sub_alim").value = "";
 
-      let valores = document.getElementsByName("subsidi_valor[]");
-      let totalSubsAdicionais = 0;
-      for (let i = 0; i < valores.length; i++) {
-        totalSubsAdicionais += Number(valores[i].value) || 0;
-      }
+    document.getElementById("areaSubsidi").innerHTML = "";
 
-      let bruto = salBase + subTrans + subAlim + totalSubsAdicionais;
-
-      let inss = salBase * 0.03;
-      let mc = (salBase - inss) + subTransTrib + subAlimTrib + totalSubsAdicionais;
-      let irt = calcularIRT(mc);
-
-      let liquido = bruto - (inss + irt);
-
-      document.getElementById("td_salbruto").innerText = bruto.toLocaleString();
-      document.getElementById("td_inss").innerText = inss.toLocaleString();
-      document.getElementById("td_irt").innerText = irt.toLocaleString();
-      document.getElementById("sal_liquido").innerText = liquido.toLocaleString();
-    }
-
-    function limpar() {
-
-  document.getElementById("inp_salbase").value = "";
-  document.getElementById("inp_sub_trans").value = "";
-  document.getElementById("inp_sub_alim").value = "";
-
-
-  document.getElementById("areaSubsidi").innerHTML = "";
-
-
-  document.getElementById("td_salbruto").innerText = "-";
-  document.getElementById("td_inss").innerText = "-";
-  document.getElementById("td_irt").innerText = "-";
-  document.getElementById("sal_liquido").innerText = "-";
-}
-
-  </script>
+    document.getElementById("td_salbruto").innerText = "-";
+    document.getElementById("td_inss").innerText = "-";
+    document.getElementById("td_irt").innerText = "-";
+    document.getElementById("sal_liquido").innerText = "-";
+  }
+</script>
 </body>
 </html>
-
