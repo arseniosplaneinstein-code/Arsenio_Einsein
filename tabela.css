@@ -17,9 +17,9 @@ main {
   background: #fff;
   border-radius: 10px;
   box-shadow: 5px 5px 10px #053a46ad;
-  width: 90%;
+  width: 100%;
   max-width: 900px;
-  padding: 20px;
+  padding: 20px 20px;
 }
 
 /* Título */
@@ -142,18 +142,42 @@ th {
 }
 
 
-@media
-(max-width: 640px) {
+@media (max-width: 640px) {
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+  label {
+    flex: 0 0 35%;          /* ocupa 35% da largura */
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* mostra "..." se o texto for grande */
+  }
+
   input {
-  width: 100px;        /* largura fixa mais pequena */
+    flex: 1;                /* ocupa o restante */
+    width: auto;            /* largura automática */
+    min-width: 120px;       /* não fica pequeno demais */
+    padding: 6px;
+    font-size: 14px;
+  }
 
-
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
 }
 
-}
+
  #areaSalario {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 justify-content: center;}
