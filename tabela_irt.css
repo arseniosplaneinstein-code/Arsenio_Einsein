@@ -43,14 +43,11 @@ header {
 
 /* ===== TABELA ===== */
 
-
 table {
-height: 500px;
-  width: 500px;
+  width: 100%;              /* ocupa toda a largura do container */
   border-collapse: collapse;
   font-size: .95rem;
-  margin: auto;
-  min-width: 600px; /* garante que a tabela não "quebra" demais */
+  margin: 20px auto;
 }
 
 thead th {
@@ -87,49 +84,22 @@ tbody tr:hover {
 /* ===== RESPONSIVO ===== */
 @media (max-width: 640px) {
   table {
-    min-width: unset; /* deixa a tabela ajustar */
+    font-size: 0.8rem; 
   }
 
-  thead {
-    display: none;
+  th, td {
+    padding: 6px 8px;  
   }
 
-  table, tbody, tr, td {
-    display: block;
-    width: 100%;
-  }
 
-  tbody tr {
-    border-bottom: 1px solid #e5e7eb;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    background: #f9fafb;
-  }
-
-  tbody td {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 8px 0;
-  }
-
-  tbody td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #0b1220;
-  }
-
-  .right {
-    text-align: left;
+  .wrap {
+    overflow-x: auto;
   }
 }
-
 
 img {
   display: block;
   width: 50px;
   height: 50px;
-  margin: auto;
-  margin-top: 30px;
+  margin: 30px auto 0 auto;
 }
