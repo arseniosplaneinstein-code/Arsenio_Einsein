@@ -34,28 +34,28 @@ h1 {
 .form-row {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   margin-bottom: 12px;
-  gap: 10px; /* Espaço entre label, input e botão */
 }
 
 label {
-  width: 200px;
-  text-align: right;
+  width: 170px;          
+  text-align: right;     
+  margin-right: 4px;    
   font-weight: bold;
-   white-space: nowrap; /* mantém tudo na mesma linha */
-  font-size: 15px; 
+  font-size: 15px;
+  white-space: normal;   /* permite quebra de linha */
+  word-wrap: break-word; /* garante quebra */
 }
+
 
 input {
-  width: 220px;        /* largura fixa mais pequena */
-  padding: 6px;
+  flex: 1;
+  max-width: 320px;
+  padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 14px;
- 
-
 }
+
 
 .form-row button {
   background: #dc3545;
@@ -70,7 +70,6 @@ input {
   background: #a71d2a;
 }
 
-
 main > button {
   padding: 10px 20px;
   font-size: 15px;
@@ -84,7 +83,8 @@ main > button {
   color: white;
   background: #007BFF;
 }
-.btn_adicionar{
+
+.btn_adicionar {
   background: #007BFF;
   color: white;
   padding: 8px 15px;
@@ -97,8 +97,8 @@ main > button {
   display: block;  
 }
 
-.btn_adicionar:hover{
-   background: #0056b3;
+.btn_adicionar:hover {
+  background: #0056b3;
   transform: scale(1.05);
 }
 
@@ -110,13 +110,13 @@ main > button:hover {
 .btn_limpar {
   background: #dc3545;
 }
+
 .btn_limpar:hover {
   background: #a71d2a;
-  transform: scale(1.05)}
+  transform: scale(1.05);
+}
 
-
-
-
+/* ===== TABELA ===== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -141,31 +141,18 @@ th {
   color: darkgreen;
 }
 
-
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 640px) {
-  .form-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-  }
-
   label {
-    flex: 0 0 35%;          /* ocupa 35% da largura */
-    text-align: right;
-    font-size: 14px;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* mostra "..." se o texto for grande */
-  }
+    width: 120px;       /* labels mais estreitos em telas pequenas */
+    font-size: 13px;
+    font-weight: bold ;
+    text-align: left;  
+    margin: auto; }
 
   input {
-    flex: 1;                /* ocupa o restante */
-    width: auto;            /* largura automática */
-    min-width: 120px;       /* não fica pequeno demais */
-    padding: 6px;
-    font-size: 14px;
+    max-width: 30%; 
+    margin: auto;   /* inputs ocupam o máximo possível */
   }
 
   main {
@@ -175,9 +162,9 @@ th {
   }
 }
 
-
- #areaSalario {
+#areaSalario {
   display: flex;
   flex-direction: column;
   align-items: center;
-justify-content: center;}
+  justify-content: center;
+}
