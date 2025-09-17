@@ -1,4 +1,3 @@
-/* Reset e estilo base */
 * {
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
@@ -15,14 +14,13 @@ body {
 
 main {
   background: #fff;
-  border-radius: 10px;
   box-shadow: 5px 5px 10px #053a46ad;
   width: 100%;
   max-width: 900px;
   padding: 20px 20px;
+  border-radius: 10px;
 }
 
-/* Título */
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -30,33 +28,29 @@ h1 {
   color: #333;
 }
 
-/* ===== FORMULÁRIO ===== */
 .form-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 220px 1fr auto; 
+  gap: 10px;
+  justify-content: center;  
   align-items: center;
   margin-bottom: 12px;
 }
 
-label {
-  width: 170px;          
-  text-align: right;     
-  margin-right: 4px;    
+.form-row label {
   font-weight: bold;
   font-size: 15px;
-  white-space: normal;   /* permite quebra de linha */
-  word-wrap: break-word; /* garante quebra */
+  text-align: right;
 }
 
-
-input {
-  flex: 1;
-  max-width: 320px;
+.form-row input {
+  width: 220px;
   padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-
+/* Botão remover dentro dos subsídios */
 .form-row button {
   background: #dc3545;
   color: white;
@@ -64,12 +58,35 @@ input {
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.form-row button i {
+  font-size: 14px;
 }
 
 .form-row button:hover {
   background: #a71d2a;
 }
 
+/* Área de inputs */
+#areaSalario,
+#areaSubsidi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#areaSubsidi .form-row input {
+  width: 220px;    
+  max-width: 220px;
+}
+
+/* Botões principais */
 main > button {
   padding: 10px 20px;
   font-size: 15px;
@@ -78,45 +95,52 @@ main > button {
   border: none;
   cursor: pointer;
   margin: 10px auto;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   transition: 0.3s;
   color: white;
-  background: #007BFF;
 }
 
+main > button i {
+  font-size: 16px;
+}
+
+/* Estilos individuais */
 .btn_adicionar {
   background: #007BFF;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 6px;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-  display: block;  
 }
-
 .btn_adicionar:hover {
   background: #0056b3;
   transform: scale(1.05);
 }
 
-main > button:hover {
-  background: #0056b3;
+.btn_calcular {
+  background: #28a745;
+}
+.btn_calcular:hover {
+  background: #1e7e34;
   transform: scale(1.05);
 }
 
 .btn_limpar {
   background: #dc3545;
 }
-
 .btn_limpar:hover {
   background: #a71d2a;
   transform: scale(1.05);
 }
 
-/* ===== TABELA ===== */
+.btn_irt {
+  background: #6f42c1;
+}
+.btn_irt:hover {
+  background: #5936a2;
+  transform: scale(1.05);
+}
+
+/* Tabela */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -141,30 +165,41 @@ th {
   color: darkgreen;
 }
 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 640px) {
-  label {
-    width: 120px;       /* labels mais estreitos em telas pequenas */
+/* Responsividade */
+@media (max-width: 600px) {
+  .form-row,
+  #areaSubsidi .form-row {  
+    display: grid;
+    grid-template-columns: 120px 1fr auto; 
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-row label,
+  #areaSubsidi .form-row label {
     font-size: 13px;
-    font-weight: bold ;
-    text-align: left;  
-    margin: auto; }
-
-  input {
-    max-width: 30%; 
-    margin: auto;   /* inputs ocupam o máximo possível */
+    text-align: right;
   }
 
-  main {
-    width: 100%;
-    margin: 0;
-    padding: 15px;
+  .form-row input,
+  #areaSubsidi .form-row input {
+    width: 100px;
+    max-width: 100%;
+    font-size: 13px;
+    padding: 6px;
   }
-}
 
-#areaSalario {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .form-row button,
+  #areaSubsidi .form-row button {
+    width: auto;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  main > button{
+    width: 170px;
+    font-size: 13px;
+    padding: 10px;
+  }
 }
