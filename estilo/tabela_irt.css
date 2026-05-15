@@ -1,0 +1,267 @@
+@charset "UTF-8";
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #1e293b,
+      #0f172a
+    );
+
+  min-height:100vh;
+
+  padding:25px;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+  width:100%;
+  max-width:1100px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1e293b,
+      #243447,
+      #1f3248
+    );
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  border:1px solid #334155;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+  background:
+    linear-gradient(
+      145deg,
+      #0f172a,
+      #1d4ed8
+    );
+
+  padding:25px;
+
+  text-align:center;
+}
+
+.header h1{
+
+  color:#ffffff;
+
+  font-size:32px;
+
+  margin-bottom:8px;
+}
+
+.header p{
+
+  color:#dbeafe;
+
+  font-size:14px;
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+
+  padding:16px 20px;
+
+  background:#334155;
+
+  color:#f1f5f9;
+
+  border-bottom:1px solid #475569;
+
+  font-size:14px;
+}
+
+/* =========================
+   TABELA
+========================= */
+
+.table-container{
+
+  padding:20px;
+
+  overflow-x:auto;
+}
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  border-radius:12px;
+
+  overflow:hidden;
+}
+
+caption{
+
+  margin-bottom:18px;
+
+  font-size:22px;
+
+  font-weight:bold;
+
+  color:#ffffff;
+}
+
+thead{
+
+  background:
+    linear-gradient(
+      145deg,
+      #1d4ed8,
+      #2563eb
+    );
+}
+
+thead th{
+
+  padding:15px;
+
+  color:white;
+
+  text-align:center;
+
+  font-size:15px;
+
+  border:1px solid #3b82f6;
+}
+
+tbody td{
+
+  padding:14px;
+
+  text-align:center;
+
+  color:#e2e8f0;
+
+  border:1px solid #334155;
+}
+
+/* LINHAS */
+
+tbody tr:nth-child(even){
+
+  background:#1e293b;
+}
+
+tbody tr:nth-child(odd){
+
+  background:#243447;
+}
+
+tbody tr:hover{
+
+  background:#334155;
+
+  transition:0.3s;
+}
+
+/* ESCALÃO */
+
+.escalao{
+
+  color:#60a5fa;
+
+  font-weight:bold;
+
+  font-size:16px;
+}
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.voltar{
+
+  padding:25px;
+
+  display:flex;
+  justify-content:center;
+}
+
+.voltar img{
+
+  width:55px;
+
+  height:55px;
+
+  border-radius:50%;
+
+  transition:0.3s;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.35);
+}
+
+.voltar img:hover{
+
+  transform:scale(1.1);
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:700px){
+
+  .header h1{
+
+    font-size:24px;
+  }
+
+  caption{
+
+    font-size:18px;
+  }
+
+  thead th,
+  tbody td{
+
+    padding:10px;
+
+    font-size:13px;
+  }
+
+}

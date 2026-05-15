@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>Calculadora Salarial - Angola</title>
+  <link
+    rel="shortcut icon"
+    href="../imagem/Salario.ico"
+    type="image/x-icon"
+  >
+  <link
+    rel="stylesheet"
+    href="../estilo/tabela.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- TOPO -->
+    <header class="header">
+
+      <h1>
+        Calculadora Salarial
+      </h1>
+
+      <p>
+        Sistema de cálculo de salário líquido,
+        INSS e IRT de Angola
+      </p>
+
+    </header>
+
+    <!-- FORMULÁRIO -->
+    <section id="areaSalario">
+
+      <div class="form-row">
+
+        <label for="inp_salbase">
+          Salário Base (Kz)
+        </label>
+
+        <input
+          type="number"
+          id="inp_salbase"
+          placeholder="Ex: 500000"
+          min="0"
+        >
+
+      </div>
+
+      <div class="form-row">
+
+        <label for="inp_sub_trans">
+          Subsídio Transporte (Kz)
+        </label>
+
+        <input
+          type="number"
+          id="inp_sub_trans"
+          placeholder="Ex: 30000"
+          min="0"
+        >
+
+      </div>
+
+      <div class="form-row">
+
+        <label for="inp_sub_alim">
+          Subsídio Alimentação (Kz)
+        </label>
+
+        <input
+          type="number"
+          id="inp_sub_alim"
+          placeholder="Ex: 30000"
+          min="0"
+        >
+
+      </div>
+
+    </section>
+
+    <!-- SUBSÍDIOS -->
+    <section id="areaSubsidi"></section>
+
+    <!-- BOTÕES -->
+    <section class="buttons">
+
+      <button
+        type="button"
+        onclick="adicionarLinha()"
+        class="btn btn_adicionar"
+      >
+
+        <i class="fa-solid fa-plus"></i>
+
+        Adicionar Subsídio
+
+      </button>
+
+      <button
+        type="button"
+        onclick="calcular()"
+        class="btn btn_calcular"
+      >
+
+        <i class="fa-solid fa-calculator"></i>
+
+        Calcular
+
+      </button>
+
+      <button
+        type="button"
+        onclick="limpar()"
+        class="btn btn_limpar"
+      >
+
+        <i class="fa-solid fa-broom"></i>
+
+        Limpar
+
+      </button>
+
+      <button
+        type="button"
+        onclick="window.location.href='tabelairt.html'"
+        class="btn btn_irt"
+      >
+
+        <i class="fa-solid fa-table"></i>
+
+        Ver Tabela IRT
+
+      </button>
+
+    </section>
+
+    <!-- RESULTADOS -->
+    <section class="resultado">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Descrição</th>
+
+            <th>Valor</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>Salário Bruto</td>
+
+            <td id="td_salbruto">
+              -
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>INSS (3%)</td>
+
+            <td id="td_inss">
+              -
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>IRT</td>
+
+            <td id="td_irt">
+              -
+            </td>
+
+          </tr>
+
+          <tr class="linha_total">
+
+            <td>
+              Salário Líquido
+            </td>
+
+            <td id="sal_liquido">
+              -
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script src="../intereções/tabela.js"></script>
+
+</body>
+</html>

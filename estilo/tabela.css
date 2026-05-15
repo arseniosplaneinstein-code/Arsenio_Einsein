@@ -1,0 +1,456 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+  background:
+    linear-gradient(
+      135deg,
+      #1f2937,
+      #243447,
+      #1e3a5f,
+      #102132
+    );
+
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  padding:20px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+  width:100%;
+  max-width:920px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #16202c,
+      #1d2b3a,
+      #23384f
+    );
+
+  border-radius:18px;
+
+  padding:25px;
+
+  border:1px solid #3d536b;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.45),
+    0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+  text-align:center;
+
+  margin-bottom:30px;
+}
+
+.header h1{
+
+  color:#ffffff;
+
+  font-size:30px;
+
+  margin-bottom:8px;
+
+  letter-spacing:1px;
+}
+
+.header p{
+
+  color:#b6c2cf;
+
+  font-size:14px;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+#areaSalario,
+#areaSubsidi{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+  margin-bottom:22px;
+}
+
+.form-row{
+
+  display:grid;
+
+  grid-template-columns:
+    230px
+    1fr
+    auto;
+
+  gap:12px;
+
+  align-items:center;
+}
+
+.form-row label{
+
+  color:#e5edf5;
+
+  font-weight:600;
+
+  text-align:right;
+
+  font-size:14px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-row input{
+
+  width:100%;
+
+  padding:10px 14px;
+
+  border-radius:10px;
+
+  border:1px solid #55697d;
+
+  background:
+    linear-gradient(
+      145deg,
+      #5d6875,
+      #4b5563
+    );
+
+  color:#ffffff;
+
+  font-size:14px;
+
+  outline:none;
+
+  transition:0.3s;
+
+  box-shadow:
+    inset 0 2px 5px rgba(0,0,0,0.25),
+    0 2px 6px rgba(0,0,0,0.15);
+}
+
+.form-row input::placeholder{
+
+  color:#d1d5db;
+}
+
+.form-row input:focus{
+
+  border-color:#3b82f6;
+
+  background:
+    linear-gradient(
+      145deg,
+      #667485,
+      #566273
+    );
+
+  box-shadow:
+    0 0 8px rgba(59,130,246,0.5);
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.buttons{
+
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-top:20px;
+  margin-bottom:25px;
+}
+
+.btn{
+
+  border:none;
+
+  border-radius:8px;
+
+  padding:9px 14px;
+
+  font-size:13px;
+
+  font-weight:bold;
+
+  color:white;
+
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  transition:0.3s;
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.25);
+}
+
+/* ADICIONAR */
+
+.btn_adicionar{
+
+  background:
+    linear-gradient(
+      145deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+.btn_adicionar:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(37,99,235,0.4);
+}
+
+/* CALCULAR */
+
+.btn_calcular{
+
+  background:
+    linear-gradient(
+      145deg,
+      #16a34a,
+      #15803d
+    );
+}
+
+.btn_calcular:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(22,163,74,0.4);
+}
+
+/* LIMPAR */
+
+.btn_limpar{
+
+  background:
+    linear-gradient(
+      145deg,
+      #dc2626,
+      #b91c1c
+    );
+}
+
+.btn_limpar:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(220,38,38,0.4);
+}
+
+/* IRT */
+
+.btn_irt{
+
+  background:
+    linear-gradient(
+      145deg,
+      #4b5563,
+      #374151
+    );
+}
+
+.btn_irt:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 5px 12px rgba(75,85,99,0.4);
+}
+
+/* REMOVER */
+
+.btn-remover{
+
+  background:
+    linear-gradient(
+      145deg,
+      #991b1b,
+      #7f1d1d
+    );
+
+  border:none;
+
+  color:white;
+
+  padding:8px 10px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  box-shadow:
+    0 3px 8px rgba(0,0,0,0.25);
+}
+
+.btn-remover:hover{
+
+  transform:scale(1.05);
+}
+
+/* =========================
+   TABELA
+========================= */
+
+.resultado{
+
+  overflow-x:auto;
+}
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  border-radius:12px;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.25);
+}
+
+th{
+
+  background:
+    linear-gradient(
+      145deg,
+      #1e3a5f,
+      #16324b
+    );
+
+  color:white;
+
+  padding:13px;
+
+  border:1px solid #304b67;
+}
+
+td{
+
+  padding:13px;
+
+  border:1px solid #304b67;
+
+  text-align:center;
+
+  color:#e5edf5;
+
+  background:#253646;
+}
+
+tbody tr:nth-child(even){
+
+  background:#1d2c3b;
+}
+
+.linha_total{
+
+  background:
+    linear-gradient(
+      145deg,
+      #1e40af,
+      #1d4ed8
+    );
+
+  font-size:18px;
+
+  font-weight:bold;
+}
+
+#sal_liquido{
+
+  color:#86efac;
+
+  font-size:20px;
+
+  font-weight:bold;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:700px){
+
+  .form-row{
+
+    grid-template-columns:1fr;
+  }
+
+  .form-row label{
+
+    text-align:left;
+  }
+
+  .buttons{
+
+    flex-direction:column;
+  }
+
+  .btn{
+
+    width:100%;
+
+    justify-content:center;
+  }
+
+  .header h1{
+
+    font-size:24px;
+  }
+}
