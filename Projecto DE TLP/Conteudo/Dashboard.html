@@ -1,11 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CarePredict Dashboard</title>
+
+    <link rel="stylesheet" href="../Estilo/Dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <div>
+                <h2>CarePredict</h2>
+                <span>Previsão de Riscos</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#" class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-user"></i>
+                Pacientes
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-chart-line"></i>
+                Análise de Risco
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-flask"></i>
+                Simulações
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-file"></i>
+                Relatórios
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="hospital">
+                Hospital São Futuro
+            </div>
+
+            <div class="user-area">
+
+                <div class="notification">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>2</span>
+                </div>
+
+                <div class="profile">
+                    <img src="https://i.imgur.com/6VBx3io.png" alt="avatar">
+                    <span>Dr. Arsénio</span>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card risk-card">
+                <h3>Índice de Risco</h3>
+
+                <div class="circle">
+                    <h1>42%</h1>
+                </div>
+
+                <p>Risco Cardiovascular</p>
+                <span>Nível Moderado</span>
+            </div>
+
+            <div class="card">
+                <h3>Evolução do Risco</h3>
+
+                <div class="chart">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar active"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Radar de Saúde</h3>
+
+                <div class="radar">
+                    <div class="radar-circle"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ALERTAS + CHAT -->
+        <section class="bottom-section">
+
+            <!-- ALERTAS -->
+            <div class="alerts">
+
+                <h2>Alertas</h2>
+
+                <div class="alert danger">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <h4>Pressão arterial elevada</h4>
+                        <p>Monitorar pressão regularmente.</p>
+                    </div>
+                </div>
+
+                <div class="alert warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <h4>IMC acima do ideal</h4>
+                        <p>Seguir plano alimentar.</p>
+                    </div>
+                </div>
+
+                <div class="alert success">
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+                        <h4>Glicemia controlada</h4>
+                        <p>Níveis dentro da faixa ideal.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CHAT -->
+            <div class="chat-box">
+
+                <div class="chat-header">
+                    <h3>MediGuard Assistente</h3>
+                </div>
+
+                <div class="chat-message">
+
+                    <img src="https://i.imgur.com/6VBx3io.png" alt="">
+
+                    <div class="message">
+                        <p>
+                            Olá Dr. Arsénio,
+                            o risco cardiovascular do paciente está moderado.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button>Ver Simulação</button>
+                <button class="secondary">Ver Relatório</button>
+
+                <input type="text" placeholder="Digite uma mensagem...">
+
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
