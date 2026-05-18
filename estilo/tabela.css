@@ -1,4 +1,4 @@
-/* =========================
+mi/* =========================
    RESET
 ========================= */
 
@@ -50,14 +50,14 @@ body{
       #23384f
     );
 
-  border-radius:18px;
+  border-radius:20px;
 
   padding:25px;
 
   border:1px solid #3d536b;
 
   box-shadow:
-    0 12px 30px rgba(0,0,0,0.45),
+    0 12px 30px lightblue,
     0 4px 12px rgba(0,0,0,0.25);
 }
 
